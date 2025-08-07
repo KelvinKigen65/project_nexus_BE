@@ -1,20 +1,23 @@
 from rest_framework import generics, permissions
-from .models import Order
-from .serializers import OrderSerializer, CreateOrderSerializer
 from rest_framework.response import Response
 from rest_framework import status
+from .models import Order
+from .serializers import OrderSerializer, CreateOrderSerializer
 
 class OrderListView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
-    
+
     def get_serializer_class(self):
         if self.request.method == 'POST':
             return CreateOrderSerializer
         return OrderSerializer
-    
+
     def get_queryset(self):
-        return Order.objects.filter(user=self.request.user)
-    
+        return Order.objects.filter(user=self.request.user) \
+            .select_related('user') \
+            .prefetch_related('items__product') \
+            .order_by('-created_at')
+
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -29,6 +32,6 @@ class OrderListView(generics.ListCreateAPIView):
 class OrderDetailView(generics.RetrieveAPIView):
     serializer_class = OrderSerializer
     permission_classes = [permissions.IsAuthenticated]
-    
+
     def get_queryset(self):
         return Order.objects.filter(user=self.request.user)
