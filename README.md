@@ -132,5 +132,3 @@ This backend system powers a product catalog for an e-commerce platform. It mana
 
 ---
 
-## 🧾 License
-MIT or specify your own.
