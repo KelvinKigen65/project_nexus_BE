@@ -72,3 +72,8 @@ Not Found: /
 "GET / HTTP/1.1" 404 3107
 "GET /swagger/ HTTP/1.1" 200 2217
 "GET /swagger/?format=openapi HTTP/1.1" 200 13675
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3107
+"GET /swagger/ HTTP/1.1" 200 2217
+"GET /swagger/?format=openapi HTTP/1.1" 200 13675
