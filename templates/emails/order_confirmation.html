@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Confirmation #{{ order.id }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { color: #4a6ea9; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .order-details { margin: 20px 0; }
+        .item { margin-bottom: 10px; }
+        .total { font-weight: bold; margin-top: 10px; }
+        .footer { margin-top: 20px; font-size: 0.8em; color: #777; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Thank you for your order!</h1>
+        
+        <p>Hello {{ order.user.username }},</p>
+        <p>Your order (#{{ order.id }}) has been received and is being processed.</p>
+        
+        <div class="order-details">
+            <h3>Order Summary</h3>
+            <p><strong>Order Date:</strong> {{ order.created_at|date:"F j, Y" }}</p>
+            <p><strong>Shipping Address:</strong> {{ order.shipping_address }}</p>
+            
+            <h4>Items:</h4>
+            {% for item in order.items.all %}
+            <div class="item">
+                {{ item.quantity }} × {{ item.product.name }} - ${{ item.price }} each
+            </div>
+            {% endfor %}
+            
+            <div class="total">
+                Total: ${{ order.total_price }}
+            </div>
+        </div>
+        
+        <p>We'll notify you when your order ships.</p>
+        
+        <div class="footer">
+            <p>If you have any questions, please contact support.</p>
+            <p>© {% now "Y" %} Your Store Name. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
