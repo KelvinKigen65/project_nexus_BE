@@ -1,1 +1,1 @@
-web: gunicorn core.wsgi:application
+web: gunicorn project_nexus_BE.wsgi:application
