@@ -42,3 +42,28 @@ Not Found: /
 "GET /swagger/?format=openapi HTTP/1.1" 200 13675
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /redoc/ HTTP/1.1" 200 931
+"GET /redoc/?format=openapi HTTP/1.1" 200 13675
+Method Not Allowed: /api/auth/register/
+"GET /api/auth/register/ HTTP/1.1" 405 7852
+Bad Request: /api/auth/register/
+"POST /api/auth/register/ HTTP/1.1" 400 8017
+"POST /api/auth/register/ HTTP/1.1" 201 7976
+Method Not Allowed: /api/auth/login/
+"GET /api/auth/login/ HTTP/1.1" 405 7422
+Unauthorized: /api/auth/login/
+Unauthorized: /api/auth/login/
+"POST /api/auth/login/ HTTP/1.1" 401 7502
+Unauthorized: /api/auth/login/
+Unauthorized: /api/auth/login/
+"POST /api/auth/login/ HTTP/1.1" 401 7502
+Unauthorized: /api/auth/login/
+"POST /api/auth/login/ HTTP/1.1" 401 7502
+Unauthorized: /api/auth/login/
+"POST /api/auth/login/ HTTP/1.1" 401 7502
+/home/kigen65/ALX_SE/project_nexus_BE/core/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/home/kigen65/ALX_SE/project_nexus_BE/core/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
