@@ -31,15 +31,26 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',') if os.getenv('ALLOWED_HOSTS') else []
 
 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.getenv('REDIS_URL', 'redis://localhost:6379/0'),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#CACHES = {
+   # "default": {
+   #     "BACKEND": "django_redis.cache.RedisCache",
+    #    "LOCATION": os.getenv('REDIS_URL', 'redis://localhost:6379/0'),
+    #    "OPTIONS": {
+     #       "CLIENT_CLASS": "django_redis.client.DefaultClient",
+     #   }
+    #}
+#}
+USE_REDIS = os.getenv('USE_REDIS', 'True').lower() == 'true'
+
+if not USE_REDIS:
+    # Use simple cache backend
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         }
     }
-}
+    # Disable Celery or make it synchronous
+    CELERY_TASK_ALWAYS_EAGER = True
 
 # Application definition
 INSTALLED_APPS = [

@@ -67,3 +67,8 @@ Watching for file changes with StatReloader
 /home/kigen65/ALX_SE/project_nexus_BE/core/settings.py changed, reloading.
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3107
+"GET /swagger/ HTTP/1.1" 200 2217
+"GET /swagger/?format=openapi HTTP/1.1" 200 13675
