@@ -123,7 +123,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',  # Add this line
+        'rest_framework.permissions.AllowAny',  
     ],
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
@@ -135,6 +135,15 @@ REST_FRAMEWORK = {
     }
 }
 
+# Add these settings to prevent Swagger from requiring login
+LOGIN_URL = None
+
+# And add this Swagger configuration
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+    'LOGIN_URL': None,
+    'LOGOUT_URL': None,
+}
 
 # CORS
 CORS_ALLOW_ALL_ORIGINS = True  # For development only
