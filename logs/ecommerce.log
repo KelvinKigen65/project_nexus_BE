@@ -98,3 +98,10 @@ Not Found: /
 "GET / HTTP/1.1" 404 3107
 "GET /swagger/ HTTP/1.1" 200 1610
 "GET /swagger/?format=openapi HTTP/1.1" 200 13719
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3107
+Not Found: /
+"GET / HTTP/1.1" 404 3107
+"GET /redoc/ HTTP/1.1" 200 931
+"GET /redoc/?format=openapi HTTP/1.1" 200 13719
