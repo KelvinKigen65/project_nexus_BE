@@ -1,6 +1,7 @@
 from django.db import models
 from orders.models import Order
 from users.models import User
+from users.models import User
 
 class Payment(models.Model):
     order = models.OneToOneField(Order, on_delete=models.PROTECT, related_name='payment')
